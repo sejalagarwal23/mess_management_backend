@@ -1,5 +1,5 @@
 // middleware/auth.js
-// FRONTEND LINK: Frontend should send JWT in Authorization header:
+// FRONTEND LINK: Frontend sends JWT in Authorization header:
 //   headers: { Authorization: `Bearer ${token}` }
 // Token is obtained from POST /api/auth/login response
 
