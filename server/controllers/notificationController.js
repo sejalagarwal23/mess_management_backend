@@ -1,7 +1,5 @@
 // controllers/notificationController.js
-// FRONTEND LINK: Called from AdminNotifications.tsx and StudentNotifications.tsx
-//   GET  /api/notifications     → mockNotifications in src/lib/store.ts
-//   POST /api/notifications     → send notification (admin only)
+
 
 const Notification = require('../models/Notification');
 

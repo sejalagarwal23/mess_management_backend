@@ -1,5 +1,5 @@
 // models/User.js
-// FRONTEND LINK: Maps to User interface in src/lib/store.ts
+
 
 const mongoose = require('mongoose');
 

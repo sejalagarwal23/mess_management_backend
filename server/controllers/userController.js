@@ -1,8 +1,4 @@
 // controllers/userController.js
-// FRONTEND LINK: Called from AdminManageUsers.tsx
-//   GET  /api/users         → getAllUsers() in src/lib/store.ts
-//   GET  /api/users/:id     → user detail view
-//   GET  /api/users/search?q=2021CS → search/filter users
 
 const User = require('../models/User');
 

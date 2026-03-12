@@ -1,5 +1,5 @@
 // models/Notification.js
-// FRONTEND LINK: Maps to Notification in src/lib/store.ts
+
 
 const mongoose = require('mongoose');
 

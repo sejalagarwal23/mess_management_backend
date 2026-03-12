@@ -1,6 +1,4 @@
 // routes/authRoutes.js
-// FRONTEND LINK: POST /api/auth/login  → Login.tsx
-//                POST /api/auth/register → AdminManageUsers.tsx (Add User)
 
 const express = require('express');
 const router = express.Router();

@@ -1,8 +1,4 @@
 // controllers/billController.js
-// FRONTEND LINK: Called from AdminMessBills.tsx and StudentMessBill.tsx
-//   GET  /api/bills/:userId          → mockBills in src/lib/store.ts
-//   POST /api/bills/generate-monthly → generate bills for all students
-//   PUT  /api/bills/monthly-cost     → save monthly cost per day config
 
 const MessBill = require('../models/MessBill');
 const MonthlyCost = require('../models/MonthlyCost');

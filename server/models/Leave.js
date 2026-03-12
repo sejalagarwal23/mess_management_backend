@@ -1,5 +1,5 @@
 // models/Leave.js
-// FRONTEND LINK: Used in AdminLeave.tsx — stores leave records assigned by admin
+
 
 const mongoose = require('mongoose');
 

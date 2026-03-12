@@ -1,6 +1,6 @@
 // config/db.js
-// Connect to MongoDB Atlas
-// FRONTEND LINK: This is called in server.js before starting Express
+// Connects to MongoDB Atlas
+// FRONTEND LINK: called in server.js before starting Express
 
 const mongoose = require('mongoose');
 

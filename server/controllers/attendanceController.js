@@ -1,7 +1,4 @@
 // controllers/attendanceController.js
-// FRONTEND LINK: Called from AdminAttendance.tsx and StudentAttendance.tsx
-//   GET  /api/attendance/:userId?month=2025-01 → mockAttendance in src/lib/store.ts
-//   POST /api/attendance                        → mark attendance
 
 const Attendance = require('../models/Attendance');
 

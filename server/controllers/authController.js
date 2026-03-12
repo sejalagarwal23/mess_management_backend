@@ -1,5 +1,4 @@
 // controllers/authController.js
-// FRONTEND LINK: Called from Login.tsx via POST /api/auth/login
 
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');

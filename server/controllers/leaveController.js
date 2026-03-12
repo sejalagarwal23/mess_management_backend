@@ -3,7 +3,7 @@ const Attendance = require('../models/Attendance');
 
 exports.assignLeave = async (req, res) => {
   try {
-    console.log("LEAVE REQUEST BODY:", req.body);
+    // console.log("LEAVE REQUEST BODY:", req.body);  for debugging
     const { userId, fromDate, toDate } = req.body;
 
     const leave = await Leave.create({

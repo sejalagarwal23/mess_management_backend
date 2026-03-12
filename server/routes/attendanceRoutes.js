@@ -1,6 +1,4 @@
 // routes/attendanceRoutes.js
-// FRONTEND LINK: GET  /api/attendance/:userId → StudentAttendance.tsx, AdminAttendance.tsx
-//                POST /api/attendance          → AdminAttendance.tsx (mark)
 
 const express = require('express');
 const router = express.Router();
