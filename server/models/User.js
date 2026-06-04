@@ -9,7 +9,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true }, // hashed with bcryptjs
   role: { type: String, enum: ['student', 'admin'], default: 'student' },
   phone: { type: String, required: true },
-  email: { type: String },
+  email: { type: String,required: true,unique:true },
   hostelNumber: { type: String },
   semester: { type: Number },
 }, { timestamps: true });

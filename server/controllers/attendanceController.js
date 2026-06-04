@@ -1,50 +1,71 @@
 // controllers/attendanceController.js
 
-const Attendance = require('../models/Attendance');
+const Attendance = require("../models/Attendance");
 
+
+// GET attendance for a student for a specific month
 exports.getByUser = async (req, res) => {
   try {
+
     const { userId } = req.params;
-    const { month } = req.query; // e.g. "2026-01"
+    const { month } = req.query; // format: 2026-03
+
     const filter = { userId };
-    if (month) filter.date = { $regex: `^${month}` };
-    const records = await Attendance.find(filter).sort({ date: 1 });
+
+    if (month) {
+      const [year, monthNumber] = month.split("-");
+
+      const startDate = new Date(year, monthNumber - 1, 1);
+      const endDate = new Date(year, monthNumber, 0, 23, 59, 59);
+
+      filter.date = {
+        $gte: startDate,
+        $lte: endDate
+      };
+    }
+
+    const records = await Attendance
+      .find(filter)
+      .sort({ date: 1 });
+
     res.json(records);
+
   } catch (err) {
+    console.error("Fetch Attendance Error:", err);
     res.status(500).json({ error: err.message });
   }
 };
 
+
+
+// Mark attendance (Admin side)
 exports.markAttendance = async (req, res) => {
   try {
+
     const { userId, date, status } = req.body;
 
-    const existing = await Attendance.findOne({ userId, date });
-
-   
-    if (existing && existing.status === "leave") {
-      return res.json({
-        message: "Student is on leave. Attendance not modified.",
-        attendance: existing
-      });
+    if (!userId || !date || !status) {
+      return res.status(400).json({ error: "Missing fields" });
     }
 
     const attendance = await Attendance.findOneAndUpdate(
-      { userId, date },
       {
-        $set: {
-          userId,
-          date,
-          status
-        }
+        userId,
+        date: new Date(date)   // ensure date format matches DB
       },
-      { upsert: true, new: true }
+      {
+        status
+      },
+      {
+        new: true,
+        upsert: true
+      }
     );
 
     res.json(attendance);
 
-  } catch (err) {
-    console.error("ATTENDANCE ERROR:", err);
-    res.status(500).json({ error: err.message });
+  } catch (error) {
+    console.error("Attendance Error:", error);
+    res.status(500).json({ error: "Server error" });
   }
 };

@@ -3,7 +3,7 @@
 
 const express = require('express');
 const router = express.Router();
-const { getAllUsers, getUserById, searchUsers } = require('../controllers/userController');
+const { getAllUsers, getUserById, searchUsers, deleteUser } = require('../controllers/userController');
 const { auth } = require('../middleware/auth');
 
 const { adminOnly } = require('../middleware/auth');
@@ -34,5 +34,5 @@ router.get('/students', auth, adminOnly, async (req, res) => {
 router.get('/', auth, getAllUsers);
 router.get('/search', auth, searchUsers);
 router.get('/:id', auth, getUserById);
-
+router.delete('/:id', auth, adminOnly, deleteUser);
 module.exports = router;
