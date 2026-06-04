@@ -1,7 +1,4 @@
 // controllers/attendanceController.js
-// FRONTEND LINK:
-//   GET  /api/attendance/:userId?month=2026-01 → StudentAttendance.tsx
-//   POST /api/attendance → AdminAttendance.tsx
 
 const Attendance = require("../models/Attendance");
 

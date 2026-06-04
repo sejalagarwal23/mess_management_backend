@@ -1,6 +1,5 @@
 // routes/userRoutes.js
-// FRONTEND LINK: GET /api/users → AdminManageUsers.tsx (getAllUsers)
-//                GET /api/users/search?q= → search in AdminManageUsers / AdminLeave
+
 
 const express = require('express');
 const router = express.Router();

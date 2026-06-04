@@ -1,8 +1,3 @@
-// middleware/auth.js
-// FRONTEND LINK: Frontend should send JWT in Authorization header:
-//   headers: { Authorization: `Bearer ${token}` }
-// Token is obtained from POST /api/auth/login response
-
 const jwt = require('jsonwebtoken');
 
 const auth = (req, res, next) => {

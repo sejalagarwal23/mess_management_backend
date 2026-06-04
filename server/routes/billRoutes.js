@@ -1,7 +1,5 @@
 // routes/billRoutes.js
-// FRONTEND LINK: GET  /api/bills/:userId        → StudentMessBill.tsx
-//                PUT  /api/bills/monthly-cost    → AdminMessBills.tsx (save costs)
-//                POST /api/bills/generate-monthly → AdminMessBills.tsx (generate)
+
 const express = require('express');
 const router = express.Router();
 

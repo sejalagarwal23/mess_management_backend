@@ -1,5 +1,4 @@
 // models/Attendance.js
-// FRONTEND LINK: Maps to AttendanceRecord in src/lib/store.ts
 
 const mongoose = require("mongoose");
 

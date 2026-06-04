@@ -1,6 +1,5 @@
 // models/MessBill.js
-// FRONTEND LINK: Maps to MessBill in src/lib/store.ts
-// Used in AdminMessBills.tsx and StudentMessBill.tsx
+
 
 const mongoose = require('mongoose');
 

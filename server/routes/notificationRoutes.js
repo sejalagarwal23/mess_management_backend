@@ -1,6 +1,5 @@
 // routes/notificationRoutes.js
-// FRONTEND LINK: GET  /api/notifications → StudentNotifications.tsx
-//                POST /api/notifications → AdminNotifications.tsx
+
 
 const express = require('express');
 const router = express.Router();

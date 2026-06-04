@@ -1,5 +1,4 @@
 // models/MonthlyCost.js
-// FRONTEND LINK: Used in AdminMessBills.tsx — stores per-month cost per day set by admin
 
 const mongoose = require('mongoose');
 

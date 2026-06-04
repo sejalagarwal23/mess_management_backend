@@ -1,8 +1,4 @@
 // controllers/billController.js
-// FRONTEND LINK: Called from AdminMessBills.tsx and StudentMessBill.tsx
-//   GET  /api/bills/:userId          → mockBills in src/lib/store.ts
-//   POST /api/bills/generate-monthly → generate bills for all students
-//   PUT  /api/bills/monthly-cost     → save monthly cost per day config
 
 const MessBill = require('../models/MessBill');
 const MonthlyCost = require('../models/MonthlyCost');
@@ -58,38 +54,38 @@ exports.generateMonthlyBills = async (req, res) => {
 
     const bills = [];
 
-    for (const student of students) {
+   for (const student of students) {
 
-      // count present days
-      const attendance = await Attendance.find({
-        userId: student._id,
-        status: "present",
-        date: {
-          $gte: new Date(year, month - 1, 1),
-          $lt: new Date(year, month, 1)
-        }
-      });
+  const startDate = `${year}-${String(month).padStart(2, "0")}-01`;
+  const endDate = `${year}-${String(month).padStart(2, "0")}-31`;
 
-      const totalDaysPresent = attendance.length;
-
-      const totalAmount = totalDaysPresent * costPerDay;
-
-      const bill = await MessBill.findOneAndUpdate(
-        { userId: student._id, month, year },
-        {
-          userId: student._id,
-          month,
-          year,
-          totalDaysPresent,
-          costPerDay,
-          totalAmount,
-          balance: totalAmount
-        },
-        { upsert: true, new: true }
-      );
-
-      bills.push(bill);
+  const totalDaysPresent = await Attendance.countDocuments({
+    userId: student._id,
+    status: "present",
+    date: {
+      $gte: startDate,
+      $lte: endDate
     }
+  });
+
+  const totalAmount = totalDaysPresent * costPerDay;
+
+  const bill = await MessBill.findOneAndUpdate(
+    { userId: student._id, month, year },
+    {
+      userId: student._id,
+      month,
+      year,
+      totalDaysPresent,
+      costPerDay,
+      totalAmount,
+      balance: totalAmount
+    },
+    { upsert: true, new: true }
+  );
+
+  bills.push(bill);
+}
 
     res.json({
       message: "Monthly bills generated successfully",
@@ -112,7 +108,7 @@ exports.getMonthlyCost = async (req, res) => {
       return res.json({ cost: 120 }); // default
     }
 
-    res.json({ cost: record.costPerDay }); // ✅ FIXED
+    res.json({ cost: record.costPerDay }); 
 
   } catch (err) {
     res.status(500).json({ error: "Failed to fetch monthly cost" });
