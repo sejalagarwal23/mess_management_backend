@@ -69,13 +69,13 @@ https://hostel-mess-management-ruddy.vercel.app/
 
 | Username | Password |
 |----------|----------|
-| ADMIN001| sejal23 |
+| ADMIN001| Sejal23 |
 
 ### Student
 
 | Username | Password |
 |----------|----------|
-| 124103011 | vikas|
+| 124103006 | krishna |
 
 ##important if login page doesn't respond it may have lost mongodb connection as i am using free version of it which stops monitoring after some days, in that case open this pdf :
 https://1drv.ms/b/c/af09d61bb0b79bdd/IQDjwcHMLJA3Sb7aa7lKBvthARLMcgyU5rBHLtxRSvgWsWE?e=7AbBYz
